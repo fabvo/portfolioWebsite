@@ -1,0 +1,98 @@
+.wrapper {
+  display: grid;
+  gap: 32px;
+}
+
+.middle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+  min-height: 320px;
+}
+
+.dropZone {
+  border: 2px dashed #94a3b8;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 16px;
+  display: grid;
+  place-items: center;
+  transition: background 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+  min-height: 280px;
+}
+.dropZone:hover {
+  background: #e2e8f0;
+}
+.dropZoneOver {
+  background: #e0e7ff;          
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.2) inset;
+}
+.dropHint {
+  margin: 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.infoPanel {
+  border: 1px solid #cbd5e1;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 280px;
+  box-shadow: 0 1px 0 rgba(2,6,23,0.04), 0 1px 2px rgba(2,6,23,0.06);
+}
+.infoTitle {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+.infoText {
+  margin: 0;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.hand {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 8px 8px 8px;
+  min-height: 160px;
+}
+
+.card {
+  position: relative;
+  width: 210px;
+  height: 360px;
+  border-radius: 14px;
+  border: 1px solid #cbd5e1;
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  box-shadow: 0 1px 0 rgba(2,6,23,0.04), 0 2px 8px rgba(2,6,23,0.08);
+  cursor: grab;
+  user-select: none;
+  outline: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease;
+  display: grid;
+  place-items: center;
+  background: #6366f1;
+}
+.card:active {
+  cursor: grabbing;
+}
+.card:hover,
+.card:focus-visible {
+  box-shadow: 0 4px 16px rgba(2,6,23,0.15);
+  background: #a1a3f6;
+}
+.cardActive {
+  border-color: #0f172a;
+  box-shadow: 0 6px 20px rgba(79,70,229,0.25);
+}
+
+.cardTitle {
+  font-weight: 600;
+  color: #0f172a;
+}
+
