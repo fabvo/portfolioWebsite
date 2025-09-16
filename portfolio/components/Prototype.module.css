@@ -57,7 +57,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 3px;
   padding: 24px 8px 8px 8px;
   min-height: 160px;
 }
