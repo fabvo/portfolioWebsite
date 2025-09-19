@@ -111,9 +111,10 @@ export default function Prototype() {
             onDragStart={(e) => onDragStart(e, card.id)}
             title={`Karte: ${card.title}`}
             style={{
-              transform: `translateY(${Math.abs((CARDS.length - 1) / 2 - idx) * 2}px) rotate(${(idx - (CARDS.length - 1) / 2) * 4}deg)`,
+              '--angle': `${(idx - (CARDS.length - 1) / 2) * 4}deg`,
+              '--offset': `${Math.abs((CARDS.length - 1) / 2 - idx) * 2}px`,
               zIndex: 10 + idx,
-            }}
+            } as React.CSSProperties}
           >
             <span className={styles.cardTitle}>{card.title}</span>
           </div>

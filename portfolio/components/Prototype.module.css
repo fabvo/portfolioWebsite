@@ -54,45 +54,75 @@
 }
 
 .hand {
-  position: relative;
+  position: fixed;              
+  left: 0;
+  right: 0;
+  bottom: calc(-0.4 * var(--card-h)); 
+  height: calc(0.6 * var(--card-h) + 24px); 
   display: flex;
   justify-content: center;
-  gap: 3px;
-  padding: 24px 8px 8px 8px;
-  min-height: 160px;
+  gap: 12px;
+  padding: 16px 8px 8px 8px;
+  pointer-events: auto;
+  z-index: 50;
+
+  background: linear-gradient(180deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.04) 60%, rgba(15,23,42,0.08) 100%);
+  border-top: 1px solid rgba(2,6,23,0.06);
+}
+
+.hand::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0; right: 0;
+  height: 10px;
+  pointer-events: none;
+  box-shadow: 0 -10px 18px rgba(2,6,23,0.06) inset;
 }
 
 .card {
   position: relative;
-  width: 210px;
-  height: 360px;
+  width: var(--card-w);
+  height: var(--card-h);
   border-radius: 14px;
   border: 1px solid #cbd5e1;
-  background: linear-gradient(180deg, #ffffff, #f8fafc);
-  box-shadow: 0 1px 0 rgba(2,6,23,0.04), 0 2px 8px rgba(2,6,23,0.08);
+  background:
+    radial-gradient(120% 100% at 50% 0%, #6b2661 0%, #ae19bf 70%),
+    linear-gradient(180deg, #ffffff, #ffffff);
+  box-shadow: 0 2px 10px rgba(2,6,23,0.12), 0 6px 18px rgba(2,6,23,0.08);
   cursor: grab;
   user-select: none;
   outline: none;
-  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease;
   display: grid;
   place-items: center;
-  background: #6366f1;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    filter 160ms ease;
+
+  --raise: 0px;
+  transform: translateY(calc(var(--offset, 0px) + var(--raise))) rotate(var(--angle, 0deg));
 }
-.card:active {
-  cursor: grabbing;
-}
+
+.card:active { cursor: grabbing; }
+
 .card:hover,
 .card:focus-visible {
-  box-shadow: 0 4px 16px rgba(2,6,23,0.15);
-  background: #a1a3f6;
+  --raise: calc(-0.4 * var(--card-h));           
+  box-shadow: 0 8px 26px rgba(2,6,23,0.18), 0 16px 40px rgba(2,6,23,0.16);
+  border-color: #94a3b8;
+  filter: brightness(1.02);
 }
+
 .cardActive {
-  border-color: #0f172a;
-  box-shadow: 0 6px 20px rgba(79,70,229,0.25);
+  border-color: #6366f1;
+  box-shadow: 0 10px 34px rgba(79,70,229,0.28), 0 18px 46px rgba(79,70,229,0.22);
 }
 
 .cardTitle {
-  font-weight: 600;
+  font-weight: 700;
   color: #0f172a;
+  letter-spacing: 0.2px;
 }
-
